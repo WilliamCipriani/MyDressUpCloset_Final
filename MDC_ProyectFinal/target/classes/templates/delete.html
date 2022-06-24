@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head(~{::title})">
+  <title>Eliminación de Producto</title>
+</head>
+<body>
+<header th:replace="layout/layout :: header"></header>
+
+<main>
+  <div>
+    <h3 th:text="${delete}"></h3>
+    <a th:href="@{'/admin'}" class="btn btn-primary">Volver a la pantalla principal</a>
+  </div>
+</main>
+</body>
+</html>

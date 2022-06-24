@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head(~{::title})">
+<title>Inicio</title>
+</head>
+<body>
+	<header th:replace="layout/layout :: header"></header>
+
+	<main>
+		<div class="container123">
+			<form th:action="@{/home/buscarProductos}" method="post"
+				th:object="${productBusqueda}" enctype="multipart/form-data">
+				<input type="text" th:field="*{name}" class="form-control"
+					id="fname"></input>
+				<button type="submit" class="btn btn-primary">Buscar</button>
+			</form>
+			<a th:href="@{'/home/ordenarProductos/asc'}" type="submit" class="btn btn-primary">Ordenar Ascendentemente Por Precio</a>
+			<a th:href="@{'/home/ordenarProductos/desc'}" type="submit" class="btn btn-primary">Ordenar Descendentemente Por Precio</a>
+			
+			<div class="c-1" >
+				<div class="row row-cols-3 auxc-1" >
+					<div th:each="item: ${products}">
+
+						<a href="purchase.xhtml"> <img th:src="${item.url}"
+							alt="Imagen 1" style="height: 320px;" />
+						</a>
+						<div>
+							<h3 th:text="${item.name}"></h3>
+							<h3 th:text="'Precio: S/.'+${item.price}"></h3>
+							<h3 th:text="'Marca: '+${item.brand}"></h3>
+							<h3 th:text="'Genero: '+${item.gen}"></h3>
+							<h3>Color:
+								<div th:style="'width:50px;height:50px;background: '+${item.color}"></div>
+							</h3>
+						</div>
+						<br></br> <a th:href="@{'/product/details/' + ${item.id} }"
+							class="btn btn-primary">Detalle</a> <br></br> <br></br>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+</body>
+</html>

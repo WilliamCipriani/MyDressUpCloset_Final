@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head(~{::title})">
+<title>Registrar</title>
+</head>
+<link rel="stylesheet" href="/recursos/CSS/estilos.css"></link>
+<link rel="stylesheet" href="/recursos/CSS/index.style.css"></link>
+<body>
+	<header th:replace="layout/layout :: header"></header>
+
+	<div class="SignIn-main-container">
+		<div class="SignIn-form-container">
+
+			<img src="/recursos/Imagenes/5.png" alt="Sign In" />
+
+			<form class="sigin" th:action="@{/user/registrar}" method="post"
+				th:object="${user}">
+				<h1>Registrar</h1>
+
+				<input type="text" id="fusername" name="fusername"
+					placeholder="nombre de usuario" required th:field="*{username}">
+
+				<input type="text" id="fcorreo" name="fcorreo"
+					placeholder="ejemplo@ejemplo.com" required th:field="*{email}">
+
+				<input type="text" id="fdni" name="fdni" placeholder="DNI" required
+					maxlength="8" th:field="*{dni}"> <input type="password"
+					id="fpassword" name="fpassword" placeholder="***********" required
+					th:field="*{password}"> <input type="text" id="name"
+					name="name" placeholder="Nombre Y Apellido" required
+					th:field="*{name}"> <input type="text" id="adress"
+					name="adress" placeholder="Direccion" required th:field="*{adress}">
+				<br>
+				<div th:if="${mensaje}" class="alert alert-danger">
+					<p th:text="${mensaje}"></p>
+				</div>
+				<button class="btn btn-primary" type="submit">Ingresar</button>
+				<br> <a class="btn btn-secondary" th:href="@{/login}">Iniciar
+					Sesion</a>
+			</form>
+
+		</div>
+	</div>
+</body>
+</html>

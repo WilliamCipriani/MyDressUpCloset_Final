@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head(~{::title})">
+<title>Reports</title>
+</head>
+<link rel="stylesheet" href="/recursos/CSS/estilos.css"></link>
+<link rel="stylesheet" href="/recursos/CSS/index.style.css"></link>
+<body>
+	<header th:replace="layout/layout :: header"></header>
+	<h2 class="text">Reportes</h2>
+	<br>
+	<div style="background-color: white; padding: 10px">
+
+		<h3>Ventas por mes</h3>
+		<form th:action="@{/admin/reports/search}" th:object="${dateSelected}"
+			method="post">
+			<div class="row">
+				<div class="col">
+					<select th:field="*{year}"
+						style="padding: 1.25rem !important; font-size: 20px">
+						<option th:value="2020" th:text="2021"></option>
+						<option th:value="2021" th:text="2021"></option>
+						<option th:value="2022" th:text="2022"></option>
+						<option th:value="2023" th:text="2022"></option>
+					</select>
+				</div>
+				<div class="col">
+					<select th:field="*{month}"
+						style="padding: 1.25rem !important; font-size: 20px">
+						<option th:value="1" th:text="Enero"></option>
+						<option th:value="2" th:text="Febrero"></option>
+						<option th:value="3" th:text="Marzo"></option>
+						<option th:value="4" th:text="Abril"></option>
+						<option th:value="5" th:text="Mayo"></option>
+						<option th:value="6" th:text="Junio"></option>
+						<option th:value="7" th:text="Julio"></option>
+						<option th:value="8" th:text="Agosto"></option>
+						<option th:value="9" th:text="Setiembre"></option>
+						<option th:value="10" th:text="Octubre"></option>
+						<option th:value="11" th:text="Noviembre"></option>
+						<option th:value="12" th:text="Diciembre"></option>
+					</select>
+				</div>
+				<div class="col">
+					<button type="submit" class="btn btn-primary"
+						style="padding: 0rem 0.75rem !important">Buscar</button>
+				</div>
+			</div>
+		</form>
+
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th class="text-center">Total</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td th:text="${purchaseReport}"></td>
+				</tr>
+			</tbody>
+		</table>
+
+	</div>
+	<br>
+	<div style="background-color: white; padding: 10px">
+
+		<h3>Top 3 Productos m&aacute;s vendidos</h3>
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th class="text-center">Id</th>
+					<th class="text-center">Nombre</th>
+					<th class="text-center">Cantidad</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="p: ${productReports}">
+					<td th:text="${p.id}"></td>
+					<td th:text="${p.name}"></td>
+					<td th:text="${p.quantity}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<br>
+	<div style="background-color: white; padding: 10px">
+		<h3>Top 3 Usuarios con m&aacute;s compras</h3>
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th class="text-center">Id</th>
+					<th class="text-center">Nombre</th>
+					<th class="text-center">Cantidad</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="u: ${userReports}">
+					<td th:text="${u.id}"></td>
+					<td th:text="${u.name}"></td>
+					<td th:text="${u.quantity}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

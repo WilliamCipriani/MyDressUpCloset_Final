@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head(~{::title})">
+<title>Inicio</title>
+</head>
+<body>
+	<header th:replace="layout/layout :: header">
+	
+	</header>
+
+	<main>
+		<div class="container123">
+			<div th:if="${success !=null}" th:text="${success}" class="alert alert-success" role="alert"></div>
+
+			<br>
+			<br>
+			<form class="sigin" th:action="@{/admin/filterProductsByCategory}" method="post" th:object="${productBusqueda}">
+			<div class="form-group">
+				<h3>Filtrar por categoría</h3>
+				<select th:field="*{name}">
+					
+					<option value="VERANO" >VERANO</option>
+					<option value="PRIMAVERA" >PRIMAVERA</option>
+					<option value="OTONO">OTONO</option>
+					<option value="INVIERNO" >INVIERNO</option>
+					
+				</select>
+
+				<div class="row">
+					<button STYLE="width: 130px; height: 40px; margin-top: 20px" type="submit" class="btn btn-info">Filtrar</button>
+				</div>
+
+			</div>
+			</form>
+			<div class="form-group" style="top: -480px">
+			<form class="sigin" th:action="@{/admin/resetFilter}" method="post">
+				<div class="row">
+					<button STYLE="width: 130px; height: 40px" type="submit" class="btn btn-warning">Borrar filtro</button>
+				</div>
+			</form>
+			</div>
+			<div class="c-1">
+				<div class="auxc-1 row row-cols-3">
+					<div th:each="item: ${products}">
+						<form class="flogin" action="#">
+				
+                                <a href="purchase.xhtml"> 
+                               	 <img th:src="${item.url}"  alt="Imagen 1" style="height: 320px;" />
+                                </a>
+                                <div>
+                                    <h3 th:text="${item.name}"></h3>
+                                    <h3 th:text="'Precio: S/.'+${item.price}"></h3>
+                                    <h3 th:text="'Marca:'+${item.brand}"></h3>
+                                    <h3 th:text="'Genero: '+${item.gen}"></h3>
+									<h3 th:text="'Categoría: '+${item.cate}"></h3>
+                                </div>
+                                <br></br>
+                                <a th:href="@{'/product/details/' + ${item.id} }" class="btn btn-primary">Detalle</a>
+								<a th:href="@{'/admin/deleteproduct/' + ${item.id} }" class="btn btn-danger">Eliminar</a>
+                                <br></br>
+                                <br></br>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+</body>
+</html>

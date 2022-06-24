@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head(~{::title})">
+<title>Detalle</title>
+</head>
+<body>
+	<header th:replace="layout/layout :: header"></header>
+
+	<div class="container-fluid" >
+		<form >
+			<div class="row" >
+				<div class="col-4">
+					<div class="wrapper">
+						<div class="container-img">
+							<img class="img" th:src="${product.url}" alt="ropa" />
+							<p class="subtl">My new outfit</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-8" style="padding: 70px;">
+					<div class="row">
+						<div class="col-sm-4 col-md-6">
+							<div class="form-group">
+								<input th:value="${product.cate}" type="text" readonly
+									class="form-control">
+							</div>
+						</div>
+						<div class="col-sm-4 col-md-6">
+							<div class="form-group">
+								<input th:value="${product.color}" type="text" readonly
+									class="form-control">
+
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-4 col-md-6">
+							<div class="form-group">
+								<input th:value="${product.type}" type="text" readonly
+									class="form-control">
+							</div>
+						</div>
+						<div class="col-sm-4 col-md-6">
+							<div class="form-group">
+								<input th:value="${product.gen}" type="text" readonly
+									class="form-control">
+							</div>
+						</div>
+					</div>
+
+					<hr style="border: 2px solid black;" />
+					<div class="row">
+						<h2>OUTFIT:</h2>
+						<div class="row">
+							<div class="col-sm-4 col-md-6">
+								<div class="form-group-1">
+									<label for="nombreProducto" class="control-label"
+										th:text="${product.name}"></label>
+								</div>
+							</div>
+						</div>
+						<a class="btn btn-secondary" th:href="@{'/myProducts/add/' + ${product.id}}">Agregar</a>
+					</div>
+				</div>
+
+			</div>
+		</form>
+	</div>
+
+</body>
+</html>

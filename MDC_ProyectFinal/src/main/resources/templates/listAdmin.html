@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head(~{::title})">
+<title>My Closet</title>
+</head>
+    <link rel="stylesheet" href="/recursos/CSS/closet.style.css"></link>
+<body>
+	<header th:replace="layout/layout :: header"></header>
+
+	<main>
+		<div class="wrapper">
+			<div class="wrapper-closet">
+				<br>
+				<br>
+				<p class="text">Administradores</p>
+				<br>
+				<br>
+				<form>
+					<table class="table table-bordered">
+							<thead>
+							<tr>
+								<th class="text-center">Nombre</th>
+								<th class="text-center">Correo</th>
+								<th class="text-center">DNI</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="p: ${admins}">
+								<td th:text="${p.username}"></td>
+								<td th:text="${p.email}"></td>
+								<td th:text="${p.dni}"></td>
+							</tr>
+						</tbody>
+					</table>
+
+				</form>
+			</div>
+		</div>
+	</main>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head(~{::title})">
+<title>Detalle de Compra</title>
+</head>
+<link rel="stylesheet" href="/recursos/CSS/closet.style.css"></link>
+<body>
+	<header th:replace="layout/layout :: header"></header>
+
+	<main>
+		<div class="wrapper">
+			<div>
+				<img class="img" src="/recursos/Imagenes/6.png" alt="ropa" />
+			</div>
+
+			<div class="wrapper-closet">
+				<br></br>
+				<p class="text">Detalle de Compra</p>
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th class="text-center">Producto</th>
+							<th class="text-center">Cantidad</th>
+							<th class="text-center">Precio Unit.</th>
+							<th class="text-center">Subtotal</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="p: ${purchaseProducts}">
+							<td th:text="${p.product.name}"></td>
+							<td th:text="${p.quantity}"></td>
+							<td th:text="${p.product.price}"></td>
+							<td th:text="${p.subtotal}"></td>
+					</tbody>
+				</table>
+
+
+				<label>Total: </label> <label th:text="${total}"></label> <br>
+				<br> <a th:href="@{/purchase}">Regresar</a>
+			</div>
+		</div>
+	</main>
+</body>
+</html>

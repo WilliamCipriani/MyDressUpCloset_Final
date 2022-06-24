@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head(~{::title})">
+<title>Registrar</title>
+</head>
+<link rel="stylesheet" href="/recursos/CSS/estilos.css"></link>
+<link rel="stylesheet" href="/recursos/CSS/index.style.css"></link>
+<body>
+	<header th:replace="layout/layout :: header"></header>
+
+	<form class="sigin" th:action="@{/card/registrar}" method="post"
+		th:object="${card}">
+		<input type="text" id="numberCard" name="numberCard"
+			placeholder="Num de tarjeta" required th:field="*{numberCard}">
+
+		<input type="text" id="expiredDate" name="expiredDate" maxlength="7"
+			placeholder="03/2022" required th:field="*{expiredDate}"> <input
+			type="text" id="ccv" name="ccv" placeholder="CCV" required
+			maxlength="3" th:field="*{ccv}"> <br>
+		<button class="btn btn-primary" type="submit">Registrar</button>
+		<br>
+	</form>
+	<br>
+	<div style="background-color: white; padding: 10px">
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th class="text-center">Id</th>
+					<th class="text-center">Num de tarjeta</th>
+					<th class="text-center">Fecha de vencimiento</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="c: ${cards}">
+					<td th:text="${c.idCard}"></td>
+					<td th:text="${c.numberCard}"></td>
+					<td th:text="${c.expiredDate}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;  
+    font-family: 'Playfair Display', serif;
+}
+
+body{
+    background-color: rgb(219, 190, 165, 100%) !important;
+}
+.navbar 
+{ 
+    font-family: 'Playfair Display', serif !important;
+    font-size: 28px;
+    padding: 25px !important;
+    background-color: rgb(247, 247, 238,100%);
+ }
+
+ .navbar-brand{
+    font-size: 28px !important;
+ }
+ .navbar-nav > li{
+  margin:30px;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+  justify-content: space-between !important;
+  flex-direction: row;
+ }
+
+.wrapper{
+    display: flex;
+    flex-direction: row;
+    padding-top: 25px;
+    text-align: center;
+    font-size: 25px;
+    height: 850px;    
+}
+
+img{
+    width: 367px;
+    height: 716px;
+}
+
+.container-img{
+    margin: 40px;
+}
+
+
+.form-control{
+    border-radius: 15px !important;
+    height: 80px !important;
+    margin-left: 20px !important;
+    margin-right:20px !important;
+    margin-bottom:50px !important;
+}
+
+.form-control-1{
+    border-radius: 15px !important;
+    height: 200px !important;
+    width: 650px !important;
+    margin-left: 20px !important;
+    margin-right:20px !important;
+    margin-bottom:50px !important;  
+}
+.form-group{
+    margin: 40px !important;
+}
+
+.label{
+    height: 75px !important;
+    margin-left: 20px !important;
+    margin-right:20px !important;
+    margin-bottom:50px !important;   
+}
+button{
+    height: 70px;
+    width: 100%;
+    background-color: #4a4a4a !important;
+}
+
+.box{
+    border: 1px solid black;
+    max-width:700px;
+    margin: 2rem auto;
+    padding: 2rem;
+    font-size: 40px;
+    background: #363636;
+    color: #ffff;
+    font-weight: bold;
+    border-radius: 5px;
+   
+}

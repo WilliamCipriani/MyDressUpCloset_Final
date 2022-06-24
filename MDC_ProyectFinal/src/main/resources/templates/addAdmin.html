@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head(~{::title})">
+<title>Add Admin</title>
+</head>
+<link rel="stylesheet" href="/recursos/CSS/estilos.css"></link>
+<link rel="stylesheet" href="/recursos/CSS/index.style.css"></link>
+<body>
+	<header th:replace="layout/layout :: header"></header>
+
+	<div class="SignIn-main-container">
+		<div class="SignIn-form-container">
+
+			<img src="/recursos/Imagenes/5.png" alt="Sign In" />
+
+			<form class="sigin" th:action="@{/user/registerNewAdminFromAdmin}" method="post" th:object="${admin}" >
+				<h1>New Admin registration</h1>
+				<div th:if="${error !=null}" th:text="${error}" class="alert alert-danger" role="alert"></div>
+
+				<input type="text" id="fcorreo" name="fcorreo"
+					placeholder="ejemplo@ejemplo.com" required th:field="*{email}" >
+					<input
+					type="text" id="fdni" name="fdni" placeholder="DNI" required
+					maxlength="8"  th:field="*{dni}" >
+
+					<input type="password" id="fpassword"
+					name="fpassword" placeholder="***********" required  th:field="*{password}">
+					 <input
+					type="text" id="name" name="name" placeholder="Nombre Y Apellido"
+					required th:field="*{name}">
+					<input type="text" id="adress" name="adress"
+					placeholder="Direccion" required th:field="*{adress}">
+
+				<button class="btn btn-primary" type="submit">Create account</button>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

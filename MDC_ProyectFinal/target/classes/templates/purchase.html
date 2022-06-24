@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head(~{::title})">
+<title>Compra</title>
+</head>
+<link rel="stylesheet" href="/recursos/CSS/closet.style.css"></link>
+<body>
+	<header th:replace="layout/layout :: header"></header>
+
+	<main>
+		<div class="wrapper">
+			<div>
+				<img class="img" src="/recursos/Imagenes/5.png" alt="ropa" />
+				<p class="text">Tus compras</p>
+			</div>
+
+			<div class="wrapper-closet">
+				<br></br>
+				<form>
+					<table class="table table-bordered">
+						<thead>
+							<tr>
+								<th class="text-center">ID</th>
+								<th class="text-center">Fecha</th>
+								<th class="text-center">Monto</th>
+								<th class="text-center">Ver</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="p: ${purchases}">
+								<td th:text="${p.id}"></td>
+								<td th:text="${#dates.format(p.date,'dd/MM/yyyy hh:mm')}"></td>
+								<td th:text="${p.amount}"></td>
+								<td><a th:href="@{'/purchaseProduct/' + ${p.id}}">Detalle</a></td>
+							</tr>
+						</tbody>
+					</table>
+					<label>Total de Compras en la app : </label> <label th:text="${total}"></label> <br>
+					<br>
+				</form>
+			</div>
+		</div>
+	</main>
+</body>
+</html>

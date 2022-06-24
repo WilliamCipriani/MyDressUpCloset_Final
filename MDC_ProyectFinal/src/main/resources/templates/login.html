@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head(~{::title})">
+<title>Login</title>
+</head>
+<link rel="stylesheet" href="/recursos/CSS/style.landing.css"></link>
+<link rel="stylesheet" href="/recursos/CSS/estilos.css"></link>
+<!-- 
+ -->
+<body>
+	<header th:replace="layout/layout :: header"></header>
+	<div class="login-main-container">
+		<div class="login-form-container">
+			<img src="/recursos/Imagenes/4.png" alt="login" />
+			<div class="flogin">
+				<form th:action="@{/login}" method="post">
+					<div>
+						<input type="text" name="username" id="username"
+							class="form-control" placeholder="UserName" autofocus required />
+						<input type="password" name="password" id="password"
+							class="form-control" placeholder="Password" required />
+
+						<input type="submit" class="btn btn-lg btn-primary btn-block"value="Sign In" />
+					</div>
+					<input type="hidden" th:name="${_csrf.parameterName}"
+						th:value="${_csrf.token}" />
+				</form>
+				<a class="btn btn-secondary" th:href="@{/user/irRegistrar}">Registrate</a>
+			</div>
+		</div>
+	</div>
+
+
+</body>
+</html>
