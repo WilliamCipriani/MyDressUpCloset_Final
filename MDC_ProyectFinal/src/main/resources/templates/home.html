@@ -7,6 +7,10 @@
 	<header th:replace="layout/layout :: header"></header>
 
 	<main>
+		<div>
+		<a th:href="@{'/home/ordenarProductos/asc'}" type="submit" class="btn btn-primary">Ordenar Ascendentemente Por Precio</a>
+		<a th:href="@{'/home/ordenarProductos/desc'}" type="submit" class="btn btn-primary">Ordenar Descendentemente Por Precio</a>
+		</div>
 		<div class="container123">
 			<form th:action="@{/home/buscarProductos}" method="post"
 				th:object="${productBusqueda}" enctype="multipart/form-data">
@@ -14,8 +18,7 @@
 					id="fname"></input>
 				<button type="submit" class="btn btn-primary">Buscar</button>
 			</form>
-			<a th:href="@{'/home/ordenarProductos/asc'}" type="submit" class="btn btn-primary">Ordenar Ascendentemente Por Precio</a>
-			<a th:href="@{'/home/ordenarProductos/desc'}" type="submit" class="btn btn-primary">Ordenar Descendentemente Por Precio</a>
+			
 			
 			<div class="c-1" >
 				<div class="row row-cols-3 auxc-1" >
