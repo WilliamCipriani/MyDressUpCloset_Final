@@ -3,111 +3,120 @@
 <head th:replace="layout/layout :: head(~{::title})">
 <title>Add Product</title>
 </head>
-<body>
+<body class="">
 	<header th:replace="layout/layout :: header"></header>
 
-	<div class="container-fluid">
-		<form class="sigin" th:action="@{/user/saveNewProduct}" method="post" th:object="${product}" >
-			<h1>New product</h1>
-			<div class="row">
-				<div class="col-8" style="padding: 70px;">
-					<div class="row">
-						<div class="col-sm-4 col-md-6">
-							<div class="form-group">
-								<h3>MARCA</h3>
-								<input type="text"
-									   class="form-control" required th:field="*{brand}" >
-							</div>
-						</div>
-						<div class="col-sm-4 col-md-6">
-							<div class="form-group">
-								<h3>CATEGORIA</h3>
-								<select th:field="*{cate}" STYLE="width: 340px; height: 75px">
-									<option value="PRIMAVERA" >PRIMAVERA</option>
-									<option value="VERANO" >VERANO</option>
-									<option value="OTONO">OTONO</option>
-									<option value="INVIERNO" >INVIERNO</option>
-									
-								</select>
-									
-							</div>
-						</div>
+	<main>
 
-					</div>
+			<div class="container-fluid">
+				<form class="sigin" th:action="@{/user/saveNewProduct}"
+					method="post" th:object="${product}">
+
+					<h1 clas="text-center">New product</h1>
 					<div class="row">
-						<div class="col-sm-4 col-md-6">
-							<div class="form-group">
-								<h3>GENERO</h3>
-								<select th:field="*{gen}" STYLE="width: 340px; height: 75px" >
-										<option value="MASCULO" >MASCULINO</option>
-										<option value="FEMENIMO" >FEMENINO</option>
-									
-								</select>
+						<div class="col-8" style="padding: 70px;">
+							<div class="row">
+								<div class="col-sm-4 col-md-6">
+									<div class="form-group">
+										<h3>MARCA</h3>
+										<input type="text" class="form-control" required
+											th:field="*{brand}">
+									</div>
+								</div>
+								<div class="col-sm-4 col-md-6">
+									<div class="form-group">
+										<h3>CATEGORIA</h3>
+										<select th:field="*{cate}" STYLE="width: 340px; height: 75px">
+											<option value="PRIMAVERA">PRIMAVERA</option>
+											<option value="VERANO">VERANO</option>
+											<option value="OTONO">OTONO</option>
+											<option value="INVIERNO">INVIERNO</option>
+
+										</select>
+
+									</div>
+								</div>
+
 							</div>
-						</div>
-						<div class="col-sm-4 col-md-6">
-							<div class="form-group">
-								<h3>NOMBRE</h3>
-								<input type="text"
-									   class="form-control" required th:field="*{name}" >
+							<div class="row">
+								<div class="col-sm-4 col-md-6">
+									<div class="form-group">
+										<h3>GENERO</h3>
+										<select th:field="*{gen}" STYLE="width: 340px; height: 75px">
+											<option value="HOMBRE">HOMBRE</option>
+											<option value="MUJER">MUJER</option>
+											<option value="UNISEX">UNISEX</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-sm-4 col-md-6">
+									<div class="form-group">
+										<h3>NOMBRE</h3>
+										<input type="text" class="form-control" required
+											th:field="*{name}">
+									</div>
+								</div>
+								<div class="col-sm-4 col-md-6">
+									<div class="form-group">
+										<h3>PRECIO</h3>
+										<input type="number" class="form-control" required
+											th:field="*{price}">
+									</div>
+								</div>
+								<div class="col-sm-4 col-md-6">
+									<div class="form-group">
+										<h3>TALLA</h3>
+										<select th:field="*{size}" STYLE="width: 340px; height: 75px">
+											<option value="S">S</option>
+											<option value="M">M</option>
+											<option value="L">L</option>
+											<option value="XL">XL</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-sm-4 col-md-6">
+									<div class="form-group">
+										<h3>TIPO</h3>
+										<input type="text" class="form-control" required
+											th:field="*{type}">
+									</div>
+								</div>
+								<div class="col-sm-4 col-md-6">
+									<div class="form-group">
+										<h3>Color</h3>
+										<select th:field="*{color}" STYLE="width: 340px; height: 75px">
+											<option value="YELLOW">YELLOW</option>
+											<option value="BLACK">BLACK</option>
+											<option value="GREEN">GREEN</option>
+											<option value="BLUE">BLUE</option>
+											<option value="WHITE">WHITE</option>
+											<option value="RED">RED</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-sm-4 col-md-6">
+									<div class="form-group">
+										<h3>Image URL</h3>
+										<input type="text" class="form-control" required
+											th:field="*{url}">
+									</div>
+								</div>
 							</div>
-						</div>
-						<div class="col-sm-4 col-md-6">
-							<div class="form-group">
-								<h3>PRECIO</h3>
-								<input type="number"
-									   class="form-control" required th:field="*{price}" >
-							</div>
-						</div>
-						<div class="col-sm-4 col-md-6">
-							<div class="form-group">
-								<h3>TALLA</h3>
-								<select th:field="*{size}" STYLE="width: 340px; height: 75px" >
-										<option value="S" >S</option>
-										<option value="M" >M</option>
-										<option value="L" >L</option>
-										<option value="XL">XL</option>
-								</select>
-							</div>
-						</div>
-						<div class="col-sm-4 col-md-6">
-							<div class="form-group">
-								<h3>TIPO</h3>
-								<input type="text"
-									   class="form-control" required th:field="*{type}" >
-							</div>
-						</div>
-						<div class="col-sm-4 col-md-6">
-							<div class="form-group">
-								<h3>Color</h3>
-								<select th:field="*{color}" STYLE="width: 340px; height: 75px" >
-										<option value="YELLOW" >YELLOW</option>
-										<option value="BLACK" >BLACK</option>
-										<option value="GREEN" >GREEN</option>
-										<option value="BLUE">BLUE</option>
-										<option value="WHITE" >WHITE</option>
-										<option value="RED">RED</option>
-								</select>
-							</div>
-						</div>
-						<div class="col-sm-4 col-md-6">
-							<div class="form-group">
-								<h3>Image URL</h3>
-								<input type="text"
-									   class="form-control" required th:field="*{url}" >
+
+							<hr style="border: 2px solid black;" />
+							<div class="row">
+								<button type="submit" class="btn btn-primary">AGREGAR</button>
 							</div>
 						</div>
 					</div>
 
-					<hr style="border: 2px solid black;" />
-					<div class="row">
-						<button type="submit" class="btn btn-primary">Add</button>
-					</div>
-				</div>
 
+				</form>
 			</div>
-		</form>
-	</div>
+
+	</main>
+
+
 
 </body>
 </html>
