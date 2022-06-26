@@ -4,42 +4,105 @@
 <title>Registrar</title>
 </head>
 <link rel="stylesheet" href="/recursos/CSS/estilos.css"></link>
-<link rel="stylesheet" href="/recursos/CSS/index.style.css"></link>
+
 <body>
 	<header th:replace="layout/layout :: header"></header>
 
-	<div class="SignIn-main-container">
-		<div class="SignIn-form-container">
-
-			<img src="/recursos/Imagenes/5.png" alt="Sign In" />
-
-			<form class="sigin" th:action="@{/user/registrar}" method="post"
-				th:object="${user}">
-				<h1>Registrar</h1>
-
-				<input type="text" id="fusername" name="fusername"
-					placeholder="nombre de usuario" required th:field="*{username}">
-
-				<input type="text" id="fcorreo" name="fcorreo"
-					placeholder="ejemplo@ejemplo.com" required th:field="*{email}">
-
-				<input type="text" id="fdni" name="fdni" placeholder="DNI" required
-					maxlength="8" th:field="*{dni}"> <input type="password"
-					id="fpassword" name="fpassword" placeholder="***********" required
-					th:field="*{password}"> <input type="text" id="name"
-					name="name" placeholder="Nombre Y Apellido" required
-					th:field="*{name}"> <input type="text" id="adress"
-					name="adress" placeholder="Direccion" required th:field="*{adress}">
-				<br>
-				<div th:if="${mensaje}" class="alert alert-danger">
-					<p th:text="${mensaje}"></p>
+	<section class="vh-100">
+		<div class="container-fluid h-custom">
+			<div class="row d-flex justify-content-center align-items-center h-100">
+				<div class="col-md-9 col-lg-6 col-xl-5">
+					<img src="/recursos/Imagenes/5.png"  class="img-fluid" alt="Sign In" />
 				</div>
-				<button class="btn btn-primary" type="submit">Ingresar</button>
-				<br> <a class="btn btn-secondary" th:href="@{/login}">Iniciar
-					Sesion</a>
-			</form>
+					
+				<div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+					<form class="sigin" th:action="@{/user/registrar}" method="post" th:object="${user}">
+						<div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
+			              <p class="lead fw-normal mb-0 me-3">Sign in with</p>
+			              <button type="button" class="btn btn-primary btn-floating mx-1">
+			                <i class="fab fa-facebook-f"></i>
+			              </button>
+			  
+			              <button type="button" class="btn btn-primary btn-floating mx-1">
+			                <i class="fab fa-twitter"></i>
+			              </button>
+			  
+			              <button type="button" class="btn btn-primary btn-floating mx-1">
+			                <i class="fab fa-linkedin-in"></i>
+			              </button>
+			            </div>
+			            
+			            <div class="divider d-flex align-items-center my-4">
+			              <p class="text-center fw-bold mx-3 mb-0">Or</p>
+			            </div>
+			            
+			            <div >
+			            	<div class="form-outline mb-4">
+			            		<label class="form-label"  for="form3Example3">UserName</label>
+			            		<input type="text" id="fusername" class="form-control form-control-lg" name="fusername"
+								placeholder="nombre de usuario" required th:field="*{username}">
+			            	</div>
+			            	
+			            	<div class="form-outline mb-4">
+			            		<label class="form-label"  for="form3Example3">Correo Electronico</label>
+								<input type="text" id="fcorreo" class="form-control form-control-lg" name="fcorreo"
+								placeholder="ejemplo@ejemplo.com" required th:field="*{email}">
+			            	</div>
+			            	
+			            	<div class="form-outline mb-3">
+			            		<label class="form-label"  for="form3Example3">DNI</label>
+								<input type="text" id="fdni" name="fdni" class="form-control form-control-lg" placeholder="DNI" required
+								maxlength="8" th:field="*{dni}"> 
+			            	</div>
+			            	
+			            	<div class="form-outline mb-3">
+			            		<label class="form-label" for="form3Example4">Password</label>
+								<input type="password"
+								id="fpassword" name="fpassword" class="form-control form-control-lg" placeholder="***********" required
+								th:field="*{password}"> 
+			            	</div>
+			            	
+			            	<div class="form-outline mb-3">
+								<label class="form-label" for="form3Example4">Nombre y Apellido</label>
+								<input type="text" id="name"
+								name="name" class="form-control form-control-lg" placeholder="Nombre Y Apellido" required
+								th:field="*{name}"> 
+			            	</div>
+			            	
+			            	<div class="form-outline mb-3">
+			            		<label class="form-label" for="form3Example4">Direccion</label>
+								<input type="text" id="adress"
+								name="adress" class="form-control form-control-lg" placeholder="Direccion" required th:field="*{adress}">
+			            	</div>
+	
+			            	
+			            </div>
+			            	
+						<div class="d-flex justify-content-between align-items-center">
+			                <div class="form-check mb-0">
+			                  <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" required/>
+			                	<label class="form-check-label" for="form2Example3">
+			                    	terms and conditions
+			                  </label>
+			                </div>
+			             </div>
+			             
+						<div th:if="${mensaje}" class="alert alert-danger">
+							<p th:text="${mensaje}"></p>
+						</div>
+						
+						<div class="text-center text-lg-start mt-4 pt-2">
+							<input type="submit" class="btn btn-primary btn-lg" value="Ingresar" style="padding-left: 2.5rem; padding-right: 2.5rem;"/>
+							<input type="submit" class="btn btn-primary btn-lg" th:href="@{/login}" value="Iniciar Sesion"
+	                  			style="padding-left: 2.5rem; padding-right: 2.5rem;"/>
+						</div>
+						
+						</form>
+					</div>
+				
 
+			</div>
 		</div>
-	</div>
+	</section>
 </body>
 </html>
