@@ -50,6 +50,8 @@
 						th:href="@{/admin/addadmin}">Add a new admin</a></li>
 					<li th:if='${session.user != null && session.user.getType() == 1}' class="nav-item"><a
 							class="nav-link" th:href="@{/admin/listAdmins}">List admins</a></li>
+					<li th:if='${session.user != null && session.user.getType() == 1}' class="nav-item"><a
+							class="nav-link" th:href="@{/admin/reports}">Reports</a></li>
 					<li th:if='${session.user == null}' class="nav-item"><a
 						class="nav-link" th:href="@{/login}">Login</a></li>
 					<li th:if='${session.user != null}' class="nav-item"><a
